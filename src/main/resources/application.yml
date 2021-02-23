@@ -4,14 +4,25 @@ spring:
   datasource:
     url: jdbc:h2:mem:testdb
     driverClassName: org.h2.Driver
-    username: sa
+    username: rk
     password: password
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
   h2:
     console:
       enabled: true
+  activemq:
+    broker-url: tcp://localhost:61616
 
+#File Properties
 app:
-    source: C:/Trainings/input?fileName=Test_Demo.txt
+    source: C:/Trainings/input?fileName=Demo_Camel.txt
     destination: C:/Trainings/output/
+    messageSource: C:/Trainings/input?fileName=Camel_JMS.txt
+    messageDestination: C:/Trainings/output/
+
+#JMS Properties
+camel:
+  component:
+    activemq:
+      broker-url: tcp://localhost:61616
